@@ -1,0 +1,2889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.D Slot Niágara | Página Oficial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e10600;
+            --secondary: #f8f9fa;
+            --accent: #ffd700;
+            --light: #212121;
+            --dark: #f8f9fa;
+            --gray: #e0e0e0;
+            --success: #28a745;
+            --info: #17a2b8;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --section-bg: #ffffff;
+            --text-color: #333;
+            --light-text: #666;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--secondary);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: linear-gradient(135deg, #f0f2f5 0%, #ffffff 100%);
+            color: var(--text-color);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            text-shadow: 0 0 15px rgba(225, 6, 0, 0.3);
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .section-title-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            background: #ff3c34;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(225, 6, 0, 0.3);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-accent:hover {
+            background: #ffdf40;
+            color: var(--dark);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            position: relative;
+            background-color: var(--section-bg);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--light-text);
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .header-scrolled {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        /* MODIFICACIÓN: Cambio de texto a logo */
+        .logo-image {
+            height: 50px;
+        }
+        
+        /* MODIFICACIÓN: Ajuste del menú con logo */
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin-left: clamp(10px, 1.5vw, 25px);
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+            letter-spacing: 1px;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after,
+        nav ul li a.active:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.8);
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+            flex-wrap: wrap;
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1 1 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        
+        .about-image {
+            flex: 1 1 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .stat-value {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            color: var(--light-text);
+        }
+        
+        /* Championships Section */
+        .championships {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1517994112540-009c47ea476b?q=80') center/cover no-repeat;
+        }
+        
+        .championships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .championship-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+        }
+        
+        .championship-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .championship-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .championship-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .championship-card:hover .championship-image img {
+            transform: scale(1.1);
+        }
+        
+        .championship-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            font-weight: 600;
+        }
+        
+        .championship-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .championship-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+        
+        .championship-content p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+            flex: 1;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        
+        .championship-content ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .championship-content li {
+            margin-bottom: 8px;
+            color: var(--light-text);
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+        }
+        
+        .championship-content li i {
+            color: var(--primary);
+            margin-right: 8px;
+            width: 16px;
+        }
+        
+        .championship-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            color: var(--light-text);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        /* Events Section */
+        .events {
+            background: linear-gradient(to bottom, #f8f9fa, #f0f2f5);
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .event-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .event-date {
+            background: var(--primary);
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: white;
+        }
+        
+        .event-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .event-content h3 {
+            margin-bottom: 15px;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--primary);
+        }
+        
+        .event-info {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            color: var(--light-text);
+        }
+        
+        .event-info i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+            flex-shrink: 0;
+        }
+        
+        .event-cta {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+        
+        /* Documents Section */
+        .documents {
+            background: linear-gradient(to bottom, #f8f9fa, #f0f2f5);
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .document-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .document-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .document-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        }
+        
+        .document-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .document-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .document-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .document-list li a {
+            color: var(--light-text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        
+        .document-list li a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .document-list li a i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+            flex-shrink: 0;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+        
+        .download-btn:hover {
+            background: #ff3c34;
+            transform: translateY(-2px);
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+        }
+        
+        /* NEW: News Section */
+        .news {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80') center/cover no-repeat;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .news-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        }
+        
+        .news-content p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            flex: 1;
+        }
+        
+        .news-cta {
+            margin-top: auto;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80') center/cover no-repeat;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(225, 6, 0, 0.4);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover:after {
+            opacity: 1;
+        }
+        
+        /* Sponsors Section */
+        .sponsors {
+            background: linear-gradient(to bottom, #f0f2f5, #f8f9fa);
+            text-align: center;
+        }
+        
+        .sponsors-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: center;
+        }
+        
+        .sponsor-item {
+            height: 100px;
+            filter: grayscale(100%);
+            opacity: 0.85;
+            transition: var(--transition);
+        }
+        
+        .sponsor-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .sponsor-item img {
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80') center/cover no-repeat;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: clamp(20px, 4vw, 40px);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: clamp(12px, 1.5vw, 14px) 15px;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            color: var(--text-color);
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(225, 6, 0, 0.05);
+            box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #f0f2f5;
+            padding: clamp(40px, 6vw, 80px) 0 30px;
+            position: relative;
+            overflow: hidden;
+            color: var(--light-text);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo-text {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-color);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: var(--primary);
+            color: white;
+        }
+        
+        .footer-links h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+        
+        .footer-links ul li a i {
+            width: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--light-text);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+        
+        .footer-contact p i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+            flex-shrink: 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--light-text);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        /* Formspree Message Styles */
+        .formspree-message {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .formspree-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .formspree-error {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .sponsors-grid {
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .championships-grid, .events-grid, .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sponsor-item {
+                height: 70px;
+                flex-basis: calc(50% - 20px);
+                display: flex;
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            transition: var(--transition);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-close:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .mobile-nav ul li a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+        
+        .mobile-nav ul li a i {
+            width: 20px;
+        }
+        
+        /* Optimizations */
+        .optimized {
+            /* Properties to improve performance */
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* MODIFICACIÓN 1: Botón de tiempos con nuevo icono */
+        .times-button {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 999;
+            background: var(--success);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .times-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
+            background: #218838;
+        }
+        
+        /* MODIFICACIÓN: Icono de cronómetro */
+        .times-button i.fa-stopwatch {
+            font-size: 1.8rem;
+        }
+        
+        /* MODIFICACIÓN 2: Estilo para el nombre del evento */
+        .event-name {
+            background: #f0f2f5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .event-name i {
+            color: var(--success);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .times-modal, .shop-modal, .location-modal {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: translateY(50px);
+            transition: all 0.4s ease;
+        }
+        
+        .modal-overlay.active .times-modal,
+        .modal-overlay.active .shop-modal,
+        .modal-overlay.active .location-modal {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-content {
+            padding: 25px;
+        }
+        
+        /* Table Styles */
+        .times-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .times-table th {
+            background: #f0f2f5;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--success);
+            border-bottom: 2px solid var(--success);
+        }
+        
+        .times-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .times-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .times-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        
+        .times-table .position {
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--success);
+            width: 40px;
+        }
+        
+        .pilot-name {
+            font-weight: 600;
+        }
+        
+        .team-name {
+            color: var(--light-text);
+            font-size: 0.85rem;
+        }
+        
+        /* Search and Filter */
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .filter-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-box {
+            position: relative;
+            flex-grow: 1;
+            max-width: 400px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        .modal-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            color: var(--light-text);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+        }
+        
+        .tab-button.active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Responsive table */
+        @media (max-width: 768px) {
+            .times-table {
+                font-size: 0.85rem;
+            }
+            
+            .times-table th, 
+            .times-table td {
+                padding: 8px 10px;
+            }
+            
+            .table-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .filter-container {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .search-box {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .modal-tabs {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Tienda Styles */
+        .shop-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 180px;
+            overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: #222;
+        }
+        
+        .product-description {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-rating {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .product-rating i {
+            color: #ffc107;
+            font-size: 0.9rem;
+            margin-right: 2px;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .add-to-cart {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .add-to-cart:hover {
+            background: #ff3c34;
+        }
+        
+        .view-details {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+        }
+        
+        .view-details:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .shop-search {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+        
+        .shop-search input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .shop-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .category-btn {
+            background: #f0f2f5;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Location Modal Styles */
+        .location-map {
+            width: 100%;
+            height: 400px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .location-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .location-info p i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+            flex-shrink: 0;
+        }
+        
+        .location-link {
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .location-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- MODIFICACIÓN 1: Botón flotante con nuevo icono de cronómetro -->
+    <button class="times-button" id="timesButton">
+        <i class="fas fa-stopwatch"></i>
+    </button>
+
+    <!-- Modal de tiempos con nombre de evento añadido -->
+    <div class="modal-overlay" id="timesModal">
+        <div class="times-modal">
+            <div class="modal-header">
+                <h3>Tiempos Online de Pilotos</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="modal-tabs">
+                    <button class="tab-button active" data-tab="circuit">Rally de Polonia</button>
+                    <button class="tab-button" data-tab="raid">IV Open Raid Slot Isora</button>
+                </div>
+                
+                <div class="table-controls">
+                    <div class="filter-container">                       
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Piloto | Grupo | Escudería">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tabla para Circuito -->
+                <div class="tab-content active" id="circuit-tab">
+                    <table class="times-table">
+                        <thead>
+                            <tr>
+                                <th class="position">#</th>
+                                <th>Piloto</th>
+                                <th>Escudería</th>
+                                <th>Grupo</th>
+                                <th>Tiempo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="circuitTableBody">
+                            <!-- Datos de Circuito se llenarán con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Tabla para Raid -->
+                <div class="tab-content" id="raid-tab">
+                    <table class="times-table">
+                        <thead>
+                            <tr>
+                                <th class="position">#</th>
+                                <th>Piloto</th>
+                                <th>Escudería</th>
+                                <th>Grupo</th>
+                                <th>Tramos Totales</th>
+                            </tr>
+                        </thead>
+                        <tbody id="raidTableBody">
+                            <!-- Datos de Raid se llenarán con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Tienda -->
+    <div class="modal-overlay" id="shopModal">
+        <div class="shop-modal">
+            <div class="modal-header">
+                <h3>Tienda Oficial Slot Niágara</h3>
+                <button class="close-modal" id="closeShopModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="shop-search">
+                    <input type="text" id="shopSearch" placeholder="Buscar productos...">
+                    <button class="btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="shop-categories">
+                    <button class="category-btn active">Todos</button>
+                    <button class="category-btn">Calcas</button>
+                    <button class="category-btn">Merchandising</button>
+                </div>
+                
+                <div class="shop-products" id="productsContainer">
+                    <!-- Los productos se generan con JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Ubicación -->
+    <div class="modal-overlay" id="locationModal">
+        <div class="location-modal">
+            <div class="modal-header">
+                <h3>Ubicación del Club</h3>
+                <button class="close-modal" id="closeLocationModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">               
+                <div class="location-info">
+                    <p><i class="fa-solid fa-building"></i>Centro Cultural de Tejina de Isora</p>
+                    <p><i class="fa-solid fa-road"></i>C/Corazones de Tejina, S/N</p>
+                    <p><i class="fa-solid fa-location-dot"></i>Municipio: Guía de Isora, Tenerife.</p>
+                    <p><i class="fas fa-clock"></i> Horario: No Disponible</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo">
+                <!-- MODIFICACIÓN: Cambio de texto a logo -->
+                <img src="awa.png" alt="Logo Club" class="logo-image">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Inicio</a></li>
+                    <li><a href="#about">Club</a></li>
+                    <li><a href="#championships">Campeonatos</a></li>
+                    <li><a href="#events">Agenda</a></li>
+                    <li><a href="#documents">Archivo</a></li>
+                    <li><a href="#news">Noticias</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#sponsors">Colaboradores</a></li>
+                    <li><a href="#" id="shopLink">Tienda</a></li> <!-- Enlace de tienda mantenido -->
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo-text">Slot Racing Club</div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#about"><i class="fas fa-users"></i> Asociación</a></li>
+                <li><a href="#championships"><i class="fas fa-trophy"></i> Campeonatos</a></li>
+                <li><a href="#events"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                <li><a href="#documents"><i class="fas fa-file-alt"></i> Documentos</a></li>
+                <li><a href="#news"><i class="fas fa-newspaper"></i> Noticias</a></li>
+                <li><a href="#gallery"><i class="fas fa-camera"></i> Galería</a></li>
+                <li><a href="#sponsors"><i class="fas fa-handshake"></i> Patrocinadores</a></li>
+                <li><a href="#" id="mobileShopLink"><i class="fas fa-shopping-cart"></i> Tienda</a></li> <!-- Enlace móvil de tienda -->
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Slot Niágara</h1>
+            <p>ASOCIACIÓN SIN ÁNIMO DE LUCRO DEDICADA A LA ORGANIZACIÓN DE COMPETICIONES DE RAID SLOT Y RALLY SLOT. ÚNETE A NUESTRA COMUNIDAD DE APASIONADOS POR EL AUTOMOVILISMO A ESCALA.</p>
+            <div class="hero-buttons">
+                <a href="#events" class="btn">Próximas Carreras</a>
+                <a href="#contact" class="btn btn-accent">Házte Socio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>NUESTRO CLUB</h2>
+                <p>Promoviendo la emoción de las carreras de slot desde 2012 con eventos de alta calidad y una comunidad apasionada.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>La Slot Racing Association nace de la pasión por el automovilismo y las competiciones en miniatura. Somos una asociación sin ánimo de lucro que organiza eventos de Raid Slot Dakar y Rally Slot a nivel nacional.</p>
+                    <p>Nuestra misión es fomentar el deporte del slot racing, crear una comunidad de entusiastas y organizar competiciones de alto nivel que respeten los valores del deporte y la sana competencia.</p>
+                    <p>Desde 2010 hemos organizado más de 100 eventos, con más de 500 participantes regulares y una creciente comunidad de aficionados que comparten nuestra pasión por las carreras de coches en miniatura.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80" alt="Equipo de la asociación">
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card optimized">
+                    <div class="stat-value">+10</div>
+                    <div class="stat-label">Años de experiencia</div>
+                </div>
+                <div class="stat-card optimized">
+                    <div class="stat-value">+70</div>
+                    <div class="stat-label">Eventos organizados</div>
+                </div>
+                <div class="stat-card optimized">
+                    <div class="stat-value">+50</div>
+                    <div class="stat-label">Pilotos activos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Championships Section -->
+    <section id="championships" class="championships">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Campeonatos</h2>
+                <p>Competiciones emocionantes para todos los niveles, desde principiantes hasta expertos en slot racing.</p>
+            </div>
+            <div class="championships-grid">
+                <div class="championship-card optimized">
+                    <div class="championship-image">
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80" alt="Raid Slot Dakar">
+                        <div class="championship-badge">Activo</div>
+                    </div>
+                    <div class="championship-content">
+                        <h3>Raid Slot Dakar</h3>
+                        <p>La competición más exigente de nuestro calendario. Réplica del famoso rally raid con circuitos que simulan las condiciones del desierto y terrenos difíciles.</p>
+                        <ul>
+                            <li><i class="fas fa-road"></i> Circuitos de hasta 30 metros</li>
+                            <li><i class="fas fa-flag-checkered"></i> 8 etapas por temporada</li>
+                            <li><i class="fas fa-car"></i> Categorías T1, T2 y T3</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Ver Calendario</a>
+                        <div class="championship-meta">
+                            <span><i class="fas fa-calendar"></i> Enero - Marzo</span>
+                            <span><i class="fas fa-trophy"></i> 3 categorías</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="championship-card optimized">
+                    <div class="championship-image">
+                        <img src="https://images.unsplash.com/photo-1603298611419-4a8b5b5b5b3a?q=80" alt="Rally Slot">
+                        <div class="championship-badge">Activo</div>
+                    </div>
+                    <div class="championship-content">
+                        <h3>Rally Slot</h3>
+                        <p>Competición basada en los rallies tradicionales con circuitos técnicos que simulan tramos de tierra, asfalto y nieve. Velocidad y precisión son clave.</p>
+                        <ul>
+                            <li><i class="fas fa-road"></i> Circuitos de 15-20 metros</li>
+                            <li><i class="fas fa-flag-checkered"></i> 10 rondas por temporada</li>
+                            <li><i class="fas fa-car"></i> Categorías WRC, R5 y R2</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Ver Calendario</a>
+                        <div class="championship-meta">
+                            <span><i class="fas fa-calendar"></i> Abril - Julio</span>
+                            <span><i class="fas fa-trophy"></i> 4 categorías</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="championship-card optimized">
+                    <div class="championship-image">
+                        <img src="https://images.unsplash.com/photo-1514316703785-8b0a5a1e0b1f?q=80" alt="Copa Promesas">
+                        <div class="championship-badge">Próximamente</div>
+                    </div>
+                    <div class="championship-content">
+                        <h3>Copa Promesas</h3>
+                        <p>Competición de iniciación para nuevos pilotos y jóvenes talentos. La mejor manera de empezar en el mundo del slot racing con vehículos estándar y normas simplificadas.</p>
+                        <ul>
+                            <li><i class="fas fa-road"></i> Circuitos de 10-15 metros</li>
+                            <li><i class="fas fa-flag-checkered"></i> 6 rondas por temporada</li>
+                            <li><i class="fas fa-car"></i> Vehículos proporcionados</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Más Información</a>
+                        <div class="championship-meta">
+                            <span><i class="fas fa-calendar"></i> Septiembre - Noviembre</span>
+                            <span><i class="fas fa-trophy"></i> 2 categorías</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Próximos Eventos</h2>
+                <p>Participa en nuestras emocionantes competiciones y demuestra tu habilidad en la pista.</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card optimized">
+                    <div class="event-date">15-17 Septiembre 2023</div>
+                    <div class="event-content">
+                        <h3>Dakar Slot - Etapa del Desierto</h3>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pabellón Deportivo Municipal, Zaragoza</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Viernes: 16:00-22:00, Sábado: 10:00-20:00, Domingo: 10:00-18:00</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-users"></i>
+                            <span>120 pilotos registrados</span>
+                        </div>
+                        <p>La etapa más dura del campeonato Dakar Slot con circuitos que simulan las dunas del Sahara. Inscripciones abiertas hasta el 10 de septiembre.</p>
+                        <div class="event-cta">
+                            <a href="#" class="btn">Inscríbete Ahora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card optimized">
+                    <div class="event-date">6-8 Octubre 2023</div>
+                    <div class="event-content">
+                        <h3>Rally Slot de Cataluña</h3>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Centro de Convenciones, Barcelona</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Viernes: 15:00-21:00, Sábado: 9:00-20:00, Domingo: 9:00-17:00</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-users"></i>
+                            <span>95 pilotos registrados</span>
+                        </div>
+                        <p>Ronda puntuable para el campeonato de Rally Slot. Circuitos inspirados en los tramos de tierra de Cataluña. Abierto a todas las categorías.</p>
+                        <div class="event-cta">
+                            <a href="#" class="btn">Inscríbete Ahora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card optimized">
+                    <div class="event-date">11-12 Noviembre 2023</div>
+                    <div class="event-content">
+                        <h3>Copa Promesas - Ronda Final</h3>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Polideportivo Municipal, Madrid</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Sábado: 10:00-19:00, Domingo: 10:00-17:00</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-users"></i>
+                            <span>65 pilotos registrados</span>
+                        </div>
+                        <p>Gran final de la Copa Promesas con los mejores jóvenes pilotos de la temporada. Exhibiciones y actividades para toda la familia.</p>
+                        <div class="event-cta">
+                            <a href="#" class="btn">Inscríbete Ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents" class="documents">
+        <div class="container">
+            <div class="section-header">
+                <h2>Documentos y Reglamentos</h2>
+                <p>Accede a toda la documentación necesaria para participar en nuestras competiciones</p>
+            </div>
+            
+            <div class="documents-grid">
+                <div class="document-card optimized">
+                    <div class="document-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Clasificaciones</h3>
+                    <p>Resultados y clasificaciones de todas nuestras competiciones</p>
+                    
+                    <ul class="document-list">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Clasificación Final Dakar Slot 2023
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-excel"></i> Resultados Rally Slot Cataluña 2023
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Ranking General Pilotos 2023
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Histórico de Clasificaciones 2010-2022
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <a href="#" class="download-btn">
+                        <i class="fas fa-download"></i> Descargar Todas
+                    </a>
+                </div>
+                
+                <div class="document-card optimized">
+                    <div class="document-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Reglamentos</h3>
+                    <p>Normativas y reglamentos para todas nuestras competiciones</p>
+                    
+                    <ul class="document-list">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Reglamento General Competiciones
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Normativa Técnica Vehículos 2023
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Reglamento Específico Dakar Slot
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Protocolo de Seguridad en Pista
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <a href="#" class="download-btn">
+                        <i class="fas fa-download"></i> Descargar Todas
+                    </a>
+                </div>
+                
+                <div class="document-card optimized">
+                    <div class="document-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Documentos para Socios</h3>
+                    <p>Formularios y documentos para miembros de la asociación</p>
+                    
+                    <ul class="document-list">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-word"></i> Solicitud Alta Socio 2023
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Estatutos de la Asociación
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i> Calendario Completo 2024
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file-excel"></i> Plantilla Inscripción Eventos
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <a href="#" class="download-btn">
+                        <i class="fas fa-download"></i> Descargar Todas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>Últimas Noticias</h2>
+                <p>Mantente informado sobre las novedades de nuestro club y competiciones</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card optimized">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1517994112540-009c47ea476b?q=80" alt="Nueva temporada">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">15 Septiembre 2023</span>
+                        <h3>Nueva temporada de Raid Slot Dakar</h3>
+                        <p>La temporada 2024 de nuestro campeonato estrella comenzará el próximo mes de enero con novedades en las categorías y circuitos.</p>
+                        <div class="news-cta">
+                            <a href="#" class="btn btn-outline">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card optimized">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80" alt="Nuevo circuito">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">10 Septiembre 2023</span>
+                        <h3>Inauguración del nuevo circuito de rally</h3>
+                        <p>Estrenamos un circuito de rally de 25 metros con secciones técnicas que pondrán a prueba la habilidad de todos los pilotos.</p>
+                        <div class="news-cta">
+                            <a href="#" class="btn btn-outline">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card optimized">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80" alt="Patrocinador">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">5 Septiembre 2023</span>
+                        <h3>Nuevo patrocinador oficial: SpeedTech</h3>
+                        <p>Nos complace anunciar que SpeedTech se une como patrocinador oficial para la próxima temporada, aportando nuevos premios y tecnología.</p>
+                        <div class="news-cta">
+                            <a href="#" class="btn btn-outline">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container gallery-content">
+            <div class="section-header">
+                <h2>Galería de Imágenes</h2>
+                <p>Momentos épicos de nuestras competiciones y eventos</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80" alt="Carreras Slot">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80" alt="Competición" placeholder="Toyota">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?q=80" alt="Pilotos">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80" alt="Circuito">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1517994112540-009c47ea476b?q=80" alt="Dakar Slot">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80" alt="Rally Slot">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80" alt="Trofeos">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1606220588915-8b7c0f0f5e9e?q=80" alt="Coches">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80" alt="Coches">
+                </div>
+                <div class="gallery-item optimized">
+                    <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80" alt="Coches">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="sponsors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Patrocinadores</h2>
+                <p>Empresas que apoyan nuestra pasión por las carreras slot</p>
+            </div>
+            <div class="sponsors-grid">
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/300x120.png/333/cccccc?text=SPEEDTECH" alt="SpeedTech">
+                </div>
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/300x120.png/333/cccccc?text=PRECISION+PARTS" alt="Precision Parts">
+                </div>
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/300x120.png/333/cccccc?text=VOLANTE+DE+ORO" alt="Volante de Oro">
+                </div>
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/300x120.png/333/cccccc?text=RACELINE" alt="RaceLine">
+                </div>
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/300x120.png/333/cccccc?text=MOTOR+WORKS" alt="Motor Works">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contacta con Nosotros</h2>
+                <p>¿Tienes alguna pregunta? Estamos aquí para ayudarte</p>
+            </div>
+            <div class="contact-form">
+                <!-- Formulario de contacto con Formspree -->
+                <form id="contactForm" action="https://formspree.io/f/xzzvjppb" method="POST">
+                    <div class="form-group">
+                        <label for="email">Tu Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Tu Mensaje</label>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Tu Nombre (opcional)</label>
+                        <input type="text" id="name" name="name" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono (opcional)</label>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-accent">Enviar Mensaje</button>
+                    
+                    <div id="formspreeSuccess" class="formspree-message formspree-success">
+                        <i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito! Te responderemos pronto.
+                    </div>
+                    <div id="formspreeError" class="formspree-message formspree-error">
+                        <i class="fas fa-exclamation-circle"></i> Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-text">Slot<span>Racing</span></div>
+                    </div>
+                    <p>Asociación sin ánimo de lucro dedicada a la promoción y organización de competiciones de Raid Slot Dakar y Rally Slot en España.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <!-- Nuevo enlace para abrir modal de ubicación -->
+                    <p><a href="#" id="locationLink" class="location-link"><i class="fas fa-map-marker-alt"></i> Ver ubicación del club</a></p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="#championships"><i class="fas fa-chevron-right"></i> Campeonatos</a></li>
+                        <li><a href="#events"><i class="fas fa-chevron-right"></i> Próximos Eventos</a></li>
+                        <li><a href="#documents"><i class="fas fa-chevron-right"></i> Documentos</a></li>
+                        <li><a href="#news"><i class="fas fa-chevron-right"></i> Noticias</a></li>
+                        <li><a href="#shopLink"><i class="fas fa-chevron-right"></i> Tienda</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Campeonatos</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Raid Slot Dakar</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Rally Slot</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Copa Promesas</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Campeonato Nacional</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Liga Regional</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Competiciones Especiales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Calle Velocidad 123, Madrid, España</p>
+                    <p><i class="fas fa-phone"></i> +34 91 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> info@slotracingassociation.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes-Viernes: 10:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Slot Racing Association. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formspreeSuccess');
+        const formError = document.getElementById('formspreeError');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Ocultar mensajes anteriores
+                formSuccess.style.display = 'none';
+                formError.style.display = 'none';
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Mostrar mensaje de éxito
+                        formSuccess.style.display = 'block';
+                        contactForm.reset();
+                        
+                        // Ocultar mensaje después de 5 segundos
+                        setTimeout(() => {
+                            formSuccess.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        throw new Error('Error al enviar el formulario');
+                    }
+                } catch (error) {
+                    // Mostrar mensaje de error
+                    formError.style.display = 'block';
+                    console.error(error);
+                    
+                    // Ocultar mensaje después de 5 segundos
+                    setTimeout(() => {
+                        formError.style.display = 'none';
+                    }, 5000);
+                }
+            });
+        }
+        
+        // Gallery Lightbox (simplified)
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                alert('En una implementación completa, aquí se abriría un lightbox con la imagen ampliada.');
+            });
+        });
+        
+        // Active Navigation Link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a, .mobile-nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Performance optimizations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply performance optimizations to elements
+            document.querySelectorAll('.optimized').forEach(el => {
+                el.style.backfaceVisibility = 'hidden';
+                el.style.transform = 'translateZ(0)';
+                el.style.willChange = 'transform';
+            });
+        });
+        
+        // Times Online Modal Functionality
+        const timesButton = document.getElementById('timesButton');
+        const timesModal = document.getElementById('timesModal');
+        const closeModal = document.getElementById('closeModal');
+        const circuitTableBody = document.getElementById('circuitTableBody');
+        const raidTableBody = document.getElementById('raidTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const eventName = document.getElementById('eventName');
+
+        // Sample data for times table
+        const circuitData = [
+            { position: 1, pilot: "Carlos Sainz", team: "Toyota Gazoo Racing", group: "A", time: "3:45:12.345" },
+            { position: 2, pilot: "Sébastien Loeb", team: "Bahrain Raid Xtreme", group: "A", time: "3:47:23.456" },
+            { position: 3, pilot: "Nasser Al-Attiyah", team: "Red Bull Off-Road", group: "B", time: "3:49:34.567" },
+            { position: 4, pilot: "Stéphane Peterhansel", team: "Audi Sport", group: "B", time: "3:51:45.678" },
+            { position: 5, pilot: "Cyril Despres", team: "Peugeot Sport", group: "C", time: "3:53:56.789" },
+            { position: 6, pilot: "Fernando Alonso", team: "Hyundai Motorsport", group: "C", time: "3:56:07.890" },
+            { position: 7, pilot: "Romain Dumas", team: "Rebellion Racing", group: "A", time: "3:58:18.901" },
+            { position: 8, pilot: "Giniel de Villiers", team: "Toyota Gazoo Racing", group: "B", time: "4:00:29.012" },
+            { position: 9, pilot: "Kuba Przygoński", team: "Orlen Team", group: "C", time: "4:02:40.123" },
+            { position: 10, pilot: "Martin Prokop", team: "Orlen Benzina Team", group: "A", time: "4:04:51.234" }
+        ];
+        
+        const raidData = [
+            { position: 1, pilot: "Carlos Sainz", team: "Toyota Gazoo Racing", group: "T1", stages: "12/12" },
+            { position: 2, pilot: "Sébastien Loeb", team: "Bahrain Raid Xtreme", group: "T1", stages: "12/12" },
+            { position: 3, pilot: "Nasser Al-Attiyah", team: "Red Bull Off-Road", group: "T1", stages: "11/12" },
+            { position: 4, pilot: "Stéphane Peterhansel", team: "Audi Sport", group: "T2", stages: "11/12" },
+            { position: 5, pilot: "Cyril Despres", team: "Peugeot Sport", group: "T2", stages: "11/12" },
+            { position: 6, pilot: "Fernando Alonso", team: "Hyundai Motorsport", group: "T2", stages: "10/12" },
+            { position: 7, pilot: "Romain Dumas", team: "Rebellion Racing", group: "T3", stages: "10/12" },
+            { position: 8, pilot: "Giniel de Villiers", team: "Toyota Gazoo Racing", group: "T3", stages: "9/12" },
+            { position: 9, pilot: "Kuba Przygoński", team: "Orlen Team", group: "T3", stages: "9/12" },
+            { position: 10, pilot: "Martin Prokop", team: "Orlen Benzina Team", group: "T1", stages: "8/12" }
+        ];
+        
+        // Function to populate the tables
+        function populateTables() {
+            circuitTableBody.innerHTML = '';
+            raidTableBody.innerHTML = '';
+            
+            circuitData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="position">${item.position}</td>
+                    <td><span class="pilot-name">${item.pilot}</span></td>
+                    <td><span class="team-name">${item.team}</span></td>
+                    <td>${item.group}</td>
+                    <td>${item.time}</td>
+                `;
+                circuitTableBody.appendChild(row);
+            });
+            
+            raidData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="position">${item.position}</td>
+                    <td><span class="pilot-name">${item.pilot}</span></td>
+                    <td><span class="team-name">${item.team}</span></td>
+                    <td>${item.group}</td>
+                    <td>${item.stages}</td>
+                `;
+                raidTableBody.appendChild(row);
+            });
+        }
+        
+        // Function to filter tables
+        function filterTables(searchTerm) {
+            // Filter Circuit Table
+            circuitTableBody.innerHTML = '';
+            const filteredCircuit = circuitData.filter(item => 
+                item.pilot.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                item.team.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.group.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            
+            filteredCircuit.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="position">${item.position}</td>
+                    <td><span class="pilot-name">${item.pilot}</span></td>
+                    <td><span class="team-name">${item.team}</span></td>
+                    <td>${item.group}</td>
+                    <td>${item.time}</td>
+                `;
+                circuitTableBody.appendChild(row);
+            });
+            
+            // Filter Raid Table
+            raidTableBody.innerHTML = '';
+            const filteredRaid = raidData.filter(item => 
+                item.pilot.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                item.team.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.group.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            
+            filteredRaid.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="position">${item.position}</td>
+                    <td><span class="pilot-name">${item.pilot}</span></td>
+                    <td><span class="team-name">${item.team}</span></td>
+                    <td>${item.group}</td>
+                    <td>${item.stages}</td>
+                `;
+                raidTableBody.appendChild(row);
+            });
+        }
+        
+        // Tab switching functionality
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Show corresponding tab content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+        
+        // Event listeners for modal
+        timesButton.addEventListener('click', () => {
+            timesModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            populateTables();
+        });
+        
+        closeModal.addEventListener('click', () => {
+            timesModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside of it
+        timesModal.addEventListener('click', (e) => {
+            if (e.target === timesModal) {
+                timesModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Search functionality
+        searchInput.addEventListener('input', () => {
+            filterTables(searchInput.value);
+        });
+        
+        // Initialize tables
+        populateTables();
+        
+        // Shop Functionality
+        const shopModal = document.getElementById('shopModal');
+        const closeShopModal = document.getElementById('closeShopModal');
+        const shopLink = document.getElementById('shopLink');
+        const mobileShopLink = document.getElementById('mobileShopLink');
+        const productsContainer = document.getElementById('productsContainer');
+        const shopSearch = document.getElementById('shopSearch');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        // Sample products data
+        const products = [
+            {
+                id: 1,
+                name: "Calcas Liqui Moly",
+                description: "Escala 1/24.",
+                price: "6",
+                category: "Calcas",
+                image: "../001.jpg",
+                badge: "Nuevo"
+            },
+            {
+                id: 2,
+                name: "Kit de Pista Profesional",
+                description: "Pista de carreras modular con 4 carriles, curvas peraltadas y sistema de cronometraje.",
+                price: "299.99",
+                category: "Calcas",
+                image: "https://via.placeholder.com/300x200.png?text=Kit+Pista",
+                badge: ""
+            },
+            {
+                id: 3,
+                name: "Controlador Digital Pro",
+                description: "Controlador digital de precisión con ajuste de velocidad y función de freno progresivo.",
+                price: "89.99",
+                category: "Calcas",
+                image: "https://via.placeholder.com/300x200.png?text=Controlador",
+                badge: ""
+            },
+            {
+                id: 4,
+                name: "Camiseta Club Oficial",
+                description: "Camiseta de algodón 100% con el logo del club y diseño deportivo. Disponible en varias tallas.",
+                price: "24.99",
+                category: "Merchandising",
+                image: "https://via.placeholder.com/300x200.png?text=Camiseta",
+                badge: ""
+            },
+            {
+                id: 5,
+                name: "Coche Rally Slot WRC",
+                description: "Modelo oficial WRC con suspensión mejorada y tracción delantera para circuitos técnicos.",
+                price: "54.99",
+                category: "Calcas",
+                image: "https://via.placeholder.com/300x200.png?text=Coche+Rally",
+                badge: ""
+            },
+            {
+                id: 6,
+                name: "Set de Herramientas",
+                description: "Kit completo de herramientas para mantenimiento y ajuste de coches slot.",
+                price: "39.99",
+                category: "Calcas",
+                image: "https://via.placeholder.com/300x200.png?text=Herramientas",
+                badge: ""
+            },
+            {
+                id: 7,
+                name: "Circuito Raid Desierto",
+                description: "Pista temática de raid con obstáculos, dunas y secciones técnicas para competiciones Dakar.",
+                price: "349.99",
+                category: "Calcas",
+                image: "https://via.placeholder.com/300x200.png?text=Pista+Raid",
+                badge: ""
+            },
+            {
+                id: 8,
+                name: "Gorra Club Oficial",
+                description: "Gorra ajustable con el logo del club y diseño deportivo. Ideal para eventos al aire libre.",
+                price: "19.99",
+                category: "Merchandising",
+                image: "https://via.placeholder.com/300x200.png?text=Gorra",
+                badge: ""
+            }
+        ];
+        
+        // Function to render products
+        function renderProducts(productsToRender) {
+            productsContainer.innerHTML = '';
+            
+            productsToRender.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card optimized';
+                
+                // Generate rating stars
+                let starsHtml = '';
+                for (let i = 0; i < 5; i++) {
+                    if (i < product.rating) {
+                        starsHtml += '<i class="fas fa-star"></i>';
+                    } else {
+                        starsHtml += '<i class="far fa-star"></i>';
+                    }
+                }
+                
+                productCard.innerHTML = `
+                    ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">${product.price}€</div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+        }
+        
+        // Filter products by category
+        function filterProducts(category) {
+            if (category === 'Todos') {
+                renderProducts(products);
+            } else {
+                const filteredProducts = products.filter(product => product.category === category);
+                renderProducts(filteredProducts);
+            }
+        }
+        
+        // Search products
+        function searchProducts(term) {
+            if (!term) {
+                renderProducts(products);
+                return;
+            }
+            
+            const filteredProducts = products.filter(product => 
+                product.name.toLowerCase().includes(term.toLowerCase()) ||
+                product.description.toLowerCase().includes(term.toLowerCase()) ||
+                product.category.toLowerCase().includes(term.toLowerCase())
+            );
+            
+            renderProducts(filteredProducts);
+        }
+        
+        // Event listeners for shop
+        shopLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            shopModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            renderProducts(products);
+        });
+        
+        mobileShopLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            shopModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            renderProducts(products);
+            mobileMenu.classList.remove('active');
+        });
+        
+        closeShopModal.addEventListener('click', () => {
+            shopModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        shopModal.addEventListener('click', (e) => {
+            if (e.target === shopModal) {
+                shopModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Category buttons
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                filterProducts(button.textContent);
+            });
+        });
+        
+        // Search functionality for shop
+        shopSearch.addEventListener('input', () => {
+            searchProducts(shopSearch.value);
+        });
+        
+        // Initialize shop
+        renderProducts(products);
+        
+        // Location Modal Functionality
+        const locationLink = document.getElementById('locationLink');
+        const locationModal = document.getElementById('locationModal');
+        const closeLocationModal = document.getElementById('closeLocationModal');
+        
+        locationLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            locationModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeLocationModal.addEventListener('click', () => {
+            locationModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        locationModal.addEventListener('click', (e) => {
+            if (e.target === locationModal) {
+                locationModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
